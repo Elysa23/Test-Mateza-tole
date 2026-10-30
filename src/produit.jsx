@@ -27,44 +27,45 @@ const produits = [
 function Produit() {
   return (
     <>
-      <section className="filtres-container">
-        <Filtre></Filtre>
+      <section className="flex flex-row justify-around">
+        <aside>
+          <Filtre></Filtre>
+        </aside>
+        <section
+          className="produits-container"
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            flexDirection: "row",
+            justifyContent: "space-between",
+          }}
+        >
+          {produits.map((produit) => (
+            <div
+              key={produit.id}
+              className="produit"
+              style={{
+                border: "1px solid #ccc",
+                padding: "10px",
+                margin: "10px",
+                backGroundImage: "url({produit.photo})",
+                backgroundSize: "cover",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "space-between",
+                width: "200px",
+                height: "200px",
+              }}
+            >
+              <h3>{produit.nom}</h3>
+              <p>Prix: {produit.prix} Ar</p>
+              <p>Catégorie: {produit.categorie}</p>
+              <button>Ajouter au panier</button>
+            </div>
+          ))}
+        </section>
       </section>
-      <section
-        className="produits-container"
-        style={{
-          display: "flex",
-          flexWrap: "wrap",
-          flexDirection: "row",
-          justifyContent: "space-between",
-        }}
-      >
-        {produits.map((produit) => (
-          <div
-            key={produit.id}
-            className="produit"
-            style={{
-              border: "1px solid #ccc",
-              padding: "10px",
-              margin: "10px",
-              backGroundImage: "url({produit.photo})",
-              backgroundSize: "cover",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "space-between",
-              width: "200px",
-              height: "200px",
-            }}
-          >
-            <h3>{produit.nom}</h3>
-            <p>Prix: {produit.prix} Ar</p>
-            <p>Catégorie: {produit.categorie}</p>
-            <button>Ajouter au panier</button>
-          </div>
-        ))}
-      </section>
-
       <section className="actualites-container">
         <h2>BESOIN D'UN PRODUIT SUR MESURE ?</h2>
         <p>

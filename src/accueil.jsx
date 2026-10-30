@@ -1,7 +1,9 @@
 function Accueil() {
   return (
     <>
-      <p>En cours de développement</p>
+      <div>
+        <p>En cours de développement</p>
+      </div>
     </>
   );
 }
